@@ -65,22 +65,25 @@ struct ContentView: View {
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
-                        .cornerRadius(8)
+                        .cornerRadius(20)
                 }
                 
                 Button(action: convertName) {
                     Text("Convertir Nombre")
                         .padding()
-                        .background(Color.green)
+                        .background(Color.cyan)
                         .foregroundColor(.white)
-                        .cornerRadius(8)
+                        .cornerRadius(20)
                 }
             }
             
             if !brailleText.isEmpty {
-                Text("Resultado en Braille: \(brailleText)")
+                Text("Resultado en Braille: ")
+                    .font(.title3)
+                    .foregroundColor(.black)
+                Text((brailleText))
                     .font(.title)
-                    .foregroundColor(.green)
+                    .foregroundColor(.black)
             }
             
             if !feedback.isEmpty {
@@ -88,7 +91,7 @@ struct ContentView: View {
                     .foregroundColor(errors.isEmpty ? .green : .red)
             }
             
-            if attempts >= 3 {
+            if attempts == 3 {
                 Text("Has alcanzado el límite de intentos.")
                     .foregroundColor(.orange)
             }
